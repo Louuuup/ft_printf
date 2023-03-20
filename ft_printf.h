@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 17:22:49 by ycyr-roy          #+#    #+#             */
-/*   Updated: 2023/03/17 21:06:51 by ycyr-roy         ###   ########.fr       */
+/*   Updated: 2023/03/20 17:20:49 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,13 @@ typedef struct formats
 	char	type;
 }t_format;
 
-int		ft_putchar(char c, size_t *len);
-int		ft_putstr(char *str, size_t *len);
-int		ft_putnbr(int n, size_t *len);
-int		ft_puthexa(int n, size_t *len);
-int		ft_putptr(char *s, size_t *len);
-int		ft_putnbr_unsigned(unsigned	int n, size_t *len);
+int		ft_putchar(char c, int *len);
+int		ft_putstr(char *str, int *len);
+int		ft_putnbr(int n, int *len);
+int		ft_puthexa(unsigned int n, int *len);
+int		ft_puthexa_alt(unsigned int n, int *len);
+int		ft_putptr(unsigned int s, int *len);
+int		ft_putnbr_unsigned(unsigned	int n, int *len);
 int		ft_atoi(const char *str);
 int		ft_printf(const char *str, ...);
 
