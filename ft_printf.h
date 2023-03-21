@@ -6,7 +6,7 @@
 /*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 17:22:49 by ycyr-roy          #+#    #+#             */
-/*   Updated: 2023/03/20 17:20:49 by ycyr-roy         ###   ########.fr       */
+/*   Updated: 2023/03/21 12:22:21 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ typedef struct formats
 int		ft_putchar(char c, int *len);
 int		ft_putstr(char *str, int *len);
 int		ft_putnbr(int n, int *len);
-int		ft_puthexa(unsigned int n, int *len);
+int		ft_puthexa(unsigned long n, int *len);
 int		ft_puthexa_alt(unsigned int n, int *len);
-int		ft_putptr(unsigned int s, int *len);
+int		ft_putptr(unsigned long s, int *len);
 int		ft_putnbr_unsigned(unsigned	int n, int *len);
 int		ft_atoi(const char *str);
 int		ft_printf(const char *str, ...);

@@ -6,7 +6,7 @@
 /*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 17:18:58 by ycyr-roy          #+#    #+#             */
-/*   Updated: 2023/03/20 17:49:47 by ycyr-roy         ###   ########.fr       */
+/*   Updated: 2023/03/21 12:24:59 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,7 @@ int	width_prec_handler(va_list args, char *str, t_format format, int *len)
 	}
 	return (types_handler(args, &str[i], format, len));
 }
+
 // A AJOUTER: UTILISER LES INFOS DANS t_format POUR APPLIQUER FLAGS AVANT DE PRINT.
 int	types_handler(va_list args, char *str, t_format format, int *len)
 {
@@ -120,7 +121,7 @@ int	types_handler(va_list args, char *str, t_format format, int *len)
 	else if (str[i] == 's')
 		return (ft_putstr(va_arg(args, char *), len));
 	else if (str[i] == 'p')
-		return (ft_putptr(va_arg(args, unsigned int), len));
+		return (ft_putptr(va_arg(args, unsigned long), len));
 	else if (str[i] == 'd' || str[i] == 'i')
 		return (ft_putnbr(va_arg(args, int), len));
 	else if (str[i] == 'u')
@@ -129,6 +130,5 @@ int	types_handler(va_list args, char *str, t_format format, int *len)
 		return (ft_puthexa(va_arg(args, unsigned int), len));
 	else if (str[i] == 'X')
 		return (ft_puthexa_alt(va_arg(args, unsigned int), len));
-	// printf("types_handler succeded\n");
 	return (0);
 }
