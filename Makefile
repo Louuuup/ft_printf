@@ -6,15 +6,17 @@
 #    By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/14 15:09:39 by yakary            #+#    #+#              #
-#    Updated: 2023/03/17 20:36:37 by ycyr-roy         ###   ########.fr        #
+#    Updated: 2023/03/22 13:25:35 by ycyr-roy         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc
 SRC = printer.c \
 		printer_1.c \
-		ft_atoi.c \
-		ft_printf.c
+		lib_ft.c \
+		lib_ft1.c \
+		ft_printf.c \
+		dispatcher.c 
 
 OBJS = $(addprefix $(BIN_DIR)/, $(SRC:.c=.o))
 NAME = libftprintf.a

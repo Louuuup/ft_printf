@@ -6,7 +6,7 @@
 /*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 17:16:06 by ycyr-roy          #+#    #+#             */
-/*   Updated: 2023/03/20 17:20:20 by ycyr-roy         ###   ########.fr       */
+/*   Updated: 2023/03/22 13:12:03 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,16 @@ int	ft_putchar(char c, int *len)
 	return (0);
 }
 
-int	ft_putstr(char *s, int *len)
+// Print the string for "max" characters,
+// or everything if max = -1
+int	ft_putstr(char *s, int max, int *len)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
 	if (!s)
-	{
-		ft_putstr("(null)", len);
-		return (0);
-	}
-	while (s[i])
+		return (ft_putstr("(null)", -1, len));
+	while (s[i] && (i < max || max == -1))
 	{
 		ft_putchar(s[i], len);
 		i++;

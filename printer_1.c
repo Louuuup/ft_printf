@@ -6,7 +6,7 @@
 /*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 19:12:56 by ycyr-roy          #+#    #+#             */
-/*   Updated: 2023/03/21 12:23:49 by ycyr-roy         ###   ########.fr       */
+/*   Updated: 2023/03/22 13:09:32 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_putptr(unsigned long s, int *len)
 {
-	ft_putstr("0x", len);
+	ft_putstr("0x", -1, len);
 	ft_puthexa(s, len);
 	return (0);
 }

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   lib_ft.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yakary <yakary@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -9,6 +9,8 @@
 /*   Updated: 2023/03/14 15:19:39 by yakary           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "ft_printf.h"
 
 int	atoi_nbr(const char *str)
 {
@@ -47,4 +49,41 @@ int	ft_atoi(const char *str)
 		string++;
 	}
 	return (atoi_nbr(string) * neg);
+}
+
+int	int_len(int n)
+{
+	if (n == -2147483648)
+		return (11);
+	else if (n < 0)
+		sdf return (1 + int_len(-n));
+	else if (n > 9)
+		return (1 + int_len(n / 10));
+	else
+		return (1);
+}
+
+int	ft_strlen(const char *s)
+{
+	int	x;
+
+	x = 0;
+	if (s[0] == '\0')
+		return (0);
+	while (s[x] != '\0')
+	{
+		x++;
+	}
+	return (x);
+}
+
+// Voids every value in struct.
+void	ft_strct_clean(t_format *format)
+{
+	format->flag[0] = '\0';
+	format->flag[1] = '\0';
+	format->flag[2] = '\0';
+	format->width = -1;
+	format->precision = -1;
+	format->type = '\0';
 }
