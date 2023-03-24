@@ -51,19 +51,15 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 // Floods console with 'c' and will do it "size" times.
 // "nb" is for int. Else, nb should be 0.
 // Returns 1 if int is pos. or -1 if int is neg.
-int	ft_flood(int size, int nb, char c, int *len)
+int	ft_flood(int size, char c, int *len)
 {
 	while (size > 0)
 	{
-		ft_putchar(c, len);
+		if (ft_putchar(c, len))
+			return (ERROR);
 		size--;
 	}
-	if (nb < 0)
-		return (-1);
-	else if (nb > 0)
-		return (1);
-	else
-		return (0);
+	return (NO_ERROR);
 }
 
 void	*ft_calloc(size_t count, size_t size)

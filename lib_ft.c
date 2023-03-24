@@ -56,7 +56,7 @@ int	int_len(int n)
 	if (n == -2147483648)
 		return (11);
 	else if (n < 0)
-		sdf return (1 + int_len(-n));
+		sdf return (int_len(-n));
 	else if (n > 9)
 		return (1 + int_len(n / 10));
 	else
@@ -78,12 +78,13 @@ int	ft_strlen(const char *s)
 }
 
 // Voids every value in struct.
+// TEMP TEST: PRE and WDH at 0 by default instead of -1
 void	ft_strct_clean(t_format *format)
 {
 	format->flag[0] = '\0';
 	format->flag[1] = '\0';
 	format->flag[2] = '\0';
-	format->width = -1;
-	format->precision = -1;
+	format->wdh = 0;
+	format->pre = 0;
 	format->type = '\0';
 }

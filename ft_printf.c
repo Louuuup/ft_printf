@@ -6,7 +6,7 @@
 /*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 17:18:58 by ycyr-roy          #+#    #+#             */
-/*   Updated: 2023/03/23 12:51:33 by ycyr-roy         ###   ########.fr       */
+/*   Updated: 2023/03/23 23:27:51 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,13 +116,13 @@ int	types_handler(va_list args, char *str, t_format *format, int *len)
 	// format->flag[0] = 'a'; ?????
 	i = 0;
 	if (str[i] == 'c')
-		return (c_dispatcher(args, format, len));
+		return (int_disp(va_arg(args, int), format, ft_putchar, len));
 	else if (str[i] == 's')
 		return (s_dispatcher(args, format, len));
 	else if (str[i] == 'p')
-		return (p_dispatcher(args, format, len));
+		return (int_disp(va_arg(args, unsigned long), format, ft_putptr, len));
 	else if (str[i] == 'd' || str[i] == 'i')
-		return (d_dispatcher(args, format, len));
+		return (int_disp(va_arg(args, int), format, ft_putnbr, len));
 	else if (str[i] == 'u')
 		return (ft_putnbr_unsigned(va_arg(args, unsigned int), len));
 	else if (str[i] == 'x')

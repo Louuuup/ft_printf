@@ -6,7 +6,7 @@
 /*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 17:16:06 by ycyr-roy          #+#    #+#             */
-/*   Updated: 2023/03/22 13:12:03 by ycyr-roy         ###   ########.fr       */
+/*   Updated: 2023/03/23 20:01:49 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 int	ft_putchar(char c, int *len)
 {
-	write(1, &c, 1);
 	*len += 1;
+	if (write(1, &c, 1) < 0)
+		return (-1);
 	return (0);
 }
 

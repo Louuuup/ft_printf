@@ -6,7 +6,7 @@
 /*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 17:22:49 by ycyr-roy          #+#    #+#             */
-/*   Updated: 2023/03/22 17:37:11 by ycyr-roy         ###   ########.fr       */
+/*   Updated: 2023/03/23 21:33:08 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,13 @@
 typedef struct formats
 {
 	char	flag[3];
-	int		width;
-	int		precision;
+	int		wdh;
+	int		pre;
 	char	type;
 }			t_format;
+
+# define ERROR -1
+# define NO_ERROR 0
 
 int			ft_putchar(char c, int *len);
 int			ft_putstr(char *str, int max, int *len);
@@ -43,7 +46,7 @@ int			c_dispatcher(va_list args, t_format *format, int *len);
 void		ft_strct_clean(t_format *format);
 int			int_len(int n);
 int			ft_atoi(const char *str);
-int			ft_flood(int size, int nb, char c, int *len);
+int			ft_flood(int size, char c, int *len);
 int			ft_strlen(const char *s);
 char		*ft_strdup(const char *s1);
 int			c_dispatcher(va_list args, t_format *format, int *len);
