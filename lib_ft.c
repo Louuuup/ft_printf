@@ -86,7 +86,6 @@ void	ft_strct_clean(t_data *data)
 	data->flag[2] = '\0';
 	data->wdh = 0;
 	data->pre = 0;
-	data->field_except = 0;
-	data->len = 0;
+	data->pre_itself = 0;
 	data->type = '\0';
 }
