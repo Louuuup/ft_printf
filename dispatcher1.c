@@ -6,7 +6,7 @@
 /*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 12:26:06 by ycyr-roy          #+#    #+#             */
-/*   Updated: 2023/03/30 21:54:57 by ycyr-roy         ###   ########.fr       */
+/*   Updated: 2023/03/31 16:11:26 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,9 @@ int	d_dispatcher1(int nb, int true_nb, t_data *data)
 		if (ft_putnbr(nb, data->len))
 			return (ERROR);
 	}
-	else if (ft_putchar(' ', data->len))
-		return (ERROR);
+	else if (data->wdh)
+		if (ft_putchar(' ', data->len))
+			return (ERROR);
 	if (int_disp3(int_len(true_nb), data))
 		return (ERROR);
 	return (NO_ERROR);
