@@ -6,7 +6,7 @@
 /*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 17:22:49 by ycyr-roy          #+#    #+#             */
-/*   Updated: 2023/03/28 15:19:14 by ycyr-roy         ###   ########.fr       */
+/*   Updated: 2023/03/30 21:23:14 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,12 @@ int			ft_flood(int size, char c, int *len);
 int			ft_strlen(const char *s);
 char		*ft_strdup(const char *s1);
 int			int_disp0(long long nb, t_data *data);
-int			int_disp1(int nb_len, t_data *data);
-int			int_disp2(long long nb, t_data *data);
-int			int_disp3(long long nb, t_data *data);
+int			int_disp1(int nb, int nb_len, t_data *data);
+int			int_disp2(int nb, int nb_len, t_data *data);
+int			int_disp3(int nb_len, t_data *data);
 int			c_dispatcher(int nb, t_data *data);
 int			d_dispatcher(int nb, t_data *data);
+int			d_dispatcher1(int nb, int true_nb, t_data *data);
 int			u_dispatcher(unsigned int nb, t_data *data);
 int			x_dispatcher(unsigned int nb, t_data *data, int iflc);
 int			p_dispatcher(unsigned long nb, t_data *data);

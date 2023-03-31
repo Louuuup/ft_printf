@@ -6,7 +6,7 @@
 /*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 12:26:06 by ycyr-roy          #+#    #+#             */
-/*   Updated: 2023/03/28 16:02:40 by ycyr-roy         ###   ########.fr       */
+/*   Updated: 2023/03/30 21:54:57 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,42 +17,56 @@
 // Some are executed before or after "putchar", depending on context.
 int	c_dispatcher(int nb, t_data *data)
 {
-	if (data->pre_itself)
-		data->pre = nb;
+	// if (data->pre_itself) (if uncomment, condition for only ints.)
+	// 	data->pre = nb;
 	if (int_disp0(nb, data))
 		return (ERROR);
-	if (int_disp1(1, data))
+	if (int_disp1(nb, 1, data))
 		return (ERROR);
-	if (int_disp2(nb, data))
+	if (int_disp2(nb, 1, data))
 		return (ERROR);
 	if (ft_putchar(nb, data->len))
 		return (ERROR);
-	if (int_disp3(nb, data))
+	if (int_disp3(1, data))
 		return (ERROR);
 	return (NO_ERROR);
 }
 
 // Dispatches flags and argmuemnts
 // Some are executed before or after "putchar", depending on context.
+// True_nb is nb without negative int filtering.
 int	d_dispatcher(int nb, t_data *data)
 {
+	int	true_nb;
+
+	true_nb = nb;
 	if (data->pre_itself && nb < 1)
 		data->pre = nb;
 	if (int_disp0(nb, data))
 		return (ERROR);
-	if (int_disp1(int_len(nb), data))
+	if (int_disp1(nb, int_len(nb), data))
 		return (ERROR);
-	if (nb < 0)
+	if (nb < 0 && nb != -2147483648)
 	{
 		if (ft_putchar('-', data->len))
 			return (ERROR);
 		nb = -nb;
 	}
-	if (int_disp2(nb, data))
+	if (int_disp2(nb, int_len(nb), data))
 		return (ERROR);
-	if (ft_putnbr(nb, data->len))
+	return (d_dispatcher1(nb, true_nb, data));
+}
+
+int	d_dispatcher1(int nb, int true_nb, t_data *data)
+{
+	if (!(nb == 0 && (data->wdh < data->pre || data->pre == 0)))
+	{
+		if (ft_putnbr(nb, data->len))
+			return (ERROR);
+	}
+	else if (ft_putchar(' ', data->len))
 		return (ERROR);
-	if (int_disp3(nb, data))
+	if (int_disp3(int_len(true_nb), data))
 		return (ERROR);
 	return (NO_ERROR);
 }
@@ -65,13 +79,13 @@ int	u_dispatcher(unsigned int nb, t_data *data)
 		data->pre = nb;
 	if (int_disp0(nb, data))
 		return (ERROR);
-	if (int_disp1(int_len(nb), data))
+	if (int_disp1(nb, int_len(nb), data))
 		return (ERROR);
-	if (int_disp2(nb, data))
+	if (int_disp2(nb, int_len(nb), data))
 		return (ERROR);
 	if (ft_putnbr_unsigned(nb, data->len))
 		return (ERROR);
-	if (int_disp3(nb, data))
+	if (int_disp3(int_len(nb), data))
 		return (ERROR);
 	return (NO_ERROR);
 }
@@ -82,13 +96,13 @@ int	p_dispatcher(unsigned long nb, t_data *data)
 {
 	if (int_disp0(nb, data))
 		return (ERROR);
-	if (int_disp1(int_len(nb), data))
+	if (int_disp1(nb, int_len(nb), data))
 		return (ERROR);
-	if (int_disp2(nb, data))
+	if (int_disp2(nb, int_len(nb), data))
 		return (ERROR);
 	if (ft_putnbr(nb, data->len))
 		return (ERROR);
-	if (int_disp3(nb, data))
+	if (int_disp3(int_len(nb), data))
 		return (ERROR);
 	return (NO_ERROR);
 }
@@ -101,9 +115,9 @@ int	x_dispatcher(unsigned int nb, t_data *data, int is_lwc)
 		data->pre = nb;
 	if (int_disp0(nb, data))
 		return (ERROR);
-	if (int_disp1(int_len(nb), data))
+	if (int_disp1(nb, int_len(nb), data))
 		return (ERROR);
-	if (int_disp2(nb, data))
+	if (int_disp2(nb, int_len(nb), data))
 		return (ERROR);
 	if (is_lwc)
 	{
@@ -112,7 +126,7 @@ int	x_dispatcher(unsigned int nb, t_data *data, int is_lwc)
 		else if (ft_puthex(nb, data->len))
 			return (ERROR);
 	}
-	if (int_disp3(nb, data))
+	if (int_disp3(int_len(nb), data))
 		return (ERROR);
 	return (NO_ERROR);
 }
