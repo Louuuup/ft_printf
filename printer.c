@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   printer.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yakary <yakary@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 17:16:06 by ycyr-roy          #+#    #+#             */
-/*   Updated: 2023/03/23 20:01:49 by ycyr-roy         ###   ########.fr       */
+/*   Updated: 2023/04/02 14:45:48 by yakary           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,10 +67,6 @@ int	ft_putnbr_unsigned(unsigned int n, int *len)
 {
 	if (n == 0)
 		ft_putchar('0', len);
-	else if (n < 0)
-	{
-		return (1);
-	}
 	else if (n > 9)
 	{
 		ft_putnbr_unsigned(n / 10, len);
