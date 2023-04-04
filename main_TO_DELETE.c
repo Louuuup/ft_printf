@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main_TO_DELETE.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 17:26:55 by ycyr-roy          #+#    #+#             */
-/*   Updated: 2023/04/03 16:46:42 by ycyr-roy         ###   ########.fr       */
+/*   Updated: 2023/04/04 14:00:06 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,25 +70,26 @@ int	main(void)
 	// printf("Size: %d\n", printf(" %-3d ", -11));
 	// printf("Size: %d\n", ft_printf(" %-3d ", -11));
 	// printf("--------------\n");
-	printf(" Size: %d\n", printf("%08d", 0));
-	printf(" Size: %d\n", ft_printf("%08d", 0));
-	printf("--------------\n");
-	printf(" Size: %d\n", printf("%08.8d", 3));
-	printf(" Size: %d\n", ft_printf("%08.8d", 3));
-	printf("--------------\n");
-	printf(" Size: %d\n", printf("%08.3d", 0));
-	printf(" Size: %d\n", ft_printf("%08.3d", 0));
-	printf("--------------\n");
-	printf(" Size: %d\n", printf("%08.3d", 3));
-	printf(" Size: %d\n", ft_printf("%08.3d", 3));
-	printf("--------------\n");
-	printf(" Size: %d\n", printf("%03.8d", 0));
-	printf(" Size: %d\n", ft_printf("%03.8d", 0));
-	printf("--------------\n");
-	printf(" Size: %d\n", printf("%0.8d", 0));
-	printf(" Size: %d\n", ft_printf("%0.8d", 0));
-	printf("--------------\n");
-	printf("--------------\n");
+	// printf(" Size: %d\n", printf("%08d", 0));
+	// printf(" Size: %d\n", ft_printf("%08d", 0));
+	// printf("--------------\n");
+	// printf(" Size: %d\n", printf("%08.8d", 3));
+	// printf(" Size: %d\n", ft_printf("%08.8d", 3));
+	// printf("--------------\n");
+	// printf(" Size: %d\n", printf("%08.3d", 0));
+	// printf(" Size: %d\n", ft_printf("%08.3d", 0));
+	// printf("--------------\n");
+	// printf(" Size: %d\n", printf("%08.3d", 3));
+	// printf(" Size: %d\n", ft_printf("%08.3d", 3));
+	// printf("--------------\n");
+	// printf(" Size: %d\n", printf("%03.8d", 0));
+	// printf(" Size: %d\n", ft_printf("%03.8d", 0));
+	// printf("--------------\n");
+	// printf(" Size: %d\n", printf("%0.8d", 0));
+	// printf(" Size: %d\n", ft_printf("%0.8d", 0));
+	// printf("--------------\n");
+	printf(" Size: %d\n", printf("%015u %03u", ULONG_MAX - 1, ULONG_MAX));
+	printf(" Size: %d\n", ft_printf("%015u %03u", ULONG_MAX - 1, ULONG_MAX));
 	printf("--------------\n");
 	printf(" Size: %d\n", printf("%-5.0d", 0));
 	printf(" Size: %d\n", ft_printf("%-5.0d", 0));
@@ -108,14 +109,14 @@ int	main(void)
 	printf(" Size: %d\n", printf("%3i", 0));
 	printf(" Size: %d\n", ft_printf("%3i", 0));
 	printf("--------------\n");
-	printf(" Size: %d\n", printf("%07i", -54));
-	printf(" Size: %d\n", ft_printf("%07i", -54));
+	printf(" Size: %d\n", printf("%.7i", -54));
+	printf(" Size: %d\n", ft_printf("%.7i", -54));
 	printf("--------------\n");
 	printf(" Size: %d\n", printf("%04i", -532));
 	printf(" Size: %d\n", ft_printf("%04i", -532));
 	printf("--------------\n");
-	printf(" Size: %d\n", printf("%-8.3i", 8375));
-	printf(" Size: %d\n", ft_printf("%-8.3i", 8375));
+	printf(" Size: %d\n", printf("%-8.13i", 833375));
+	printf(" Size: %d\n", ft_printf("%-8.13i", 833375));
 	printf("--------------\n");
 	printf(" Size: %d\n", printf("%d", 0));
 	printf(" Size: %d\n", ft_printf("%d", 0));
@@ -125,6 +126,24 @@ int	main(void)
 	printf("--------------\n");
 	printf(" Size: %d\n", printf("%07d", -54));
 	printf(" Size: %d\n", ft_printf("%07d", -54));
+	printf("--------------\n");
+	printf(" Size: %d\n", printf("%-12.20d", -54));
+	printf(" Size: %d\n", ft_printf("%-12.20d", -54));
+	printf("--------------\n");
+	printf(" Size: %d\n", printf("%-4.18u", 54));
+	printf(" Size: %d\n", ft_printf("%-4.18u", 54));
+	printf("--------------\n");
+	printf(" Size: %d\n", printf("%.8u", LONG_MAX));
+	printf(" Size: %d\n", ft_printf("%.8u", LONG_MAX));
+	printf("--------------\n");
+	printf(" Size: %d\n", printf("%.8u", LONG_MIN));
+	printf(" Size: %d\n", ft_printf("%.8u", LONG_MIN));
+	printf("--------------\n");
+	printf(" Size: %d\n", printf("%.8u", ULONG_MAX));
+	printf(" Size: %d\n", ft_printf("%.8u", ULONG_MAX));
+	printf("--------------\n");
+	printf("--------------\n");
+	printf("--------------\n");
 	s[1] = d;
 	c = d;
 }

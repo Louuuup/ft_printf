@@ -6,7 +6,7 @@
 /*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 12:26:06 by ycyr-roy          #+#    #+#             */
-/*   Updated: 2023/04/04 12:58:49 by ycyr-roy         ###   ########.fr       */
+/*   Updated: 2023/04/04 14:10:48 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,7 @@ int	p_dispatcher(unsigned long nb, t_data *data)
 	return (NO_ERROR);
 }
 
-// Dispatches flags and argmuemnts  * [iflc = 0 means x. Else X]
+// Dispatches flags and argmuemnts  * [is_lwc = 0 means x. Else X]
 // Some are executed before or after "putchar", depending on context.
 int	x_dispatcher(unsigned int nb, t_data *data, int is_lwc)
 {
