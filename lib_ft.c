@@ -51,7 +51,7 @@ int	ft_atoi(const char *str)
 	return (atoi_nbr(string) * neg);
 }
 
-int	int_len(int n)
+int	int_len(long long n)
 {
 	if (n == -2147483648)
 		return (11);

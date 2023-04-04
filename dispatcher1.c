@@ -6,7 +6,7 @@
 /*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 12:26:06 by ycyr-roy          #+#    #+#             */
-/*   Updated: 2023/03/31 16:11:26 by ycyr-roy         ###   ########.fr       */
+/*   Updated: 2023/04/04 12:58:49 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,14 +52,14 @@ int	d_dispatcher(int nb, t_data *data)
 			return (ERROR);
 		nb = -nb;
 	}
-	if (int_disp2(nb, int_len(nb), data))
+	if (int_disp2(true_nb, int_len(nb), data))
 		return (ERROR);
 	return (d_dispatcher1(nb, true_nb, data));
 }
 
 int	d_dispatcher1(int nb, int true_nb, t_data *data)
 {
-	if (!(nb == 0 && (data->wdh < data->pre || data->pre == 0)))
+	if (!(nb == 0 && (data->pre == 0)))
 	{
 		if (ft_putnbr(nb, data->len))
 			return (ERROR);
