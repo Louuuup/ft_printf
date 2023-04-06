@@ -6,7 +6,7 @@
 /*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 14:33:02 by ycyr-roy          #+#    #+#             */
-/*   Updated: 2023/03/28 15:17:51 by ycyr-roy         ###   ########.fr       */
+/*   Updated: 2023/04/05 23:01:29 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,12 @@ int	flags_handler(char *str, t_data *data)
 			data->flag[0] = str[i++];
 		else if (str[i] == '+')
 			data->flag[0] = str[i++];
-		else if (str[i] == '0')
-			data->flag[1] = str[i++];
 		else if (str[i] == '-')
 			data->flag[1] = str[i++];
-		else if (str[i] == '#')
+		else if (str[i] == '0')
 			data->flag[2] = str[i++];
+		else if (str[i] == '#')
+			data->flag[3] = str[i++];
 		else
 			break ;
 	}

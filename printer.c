@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   printer.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yakary <yakary@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 17:16:06 by ycyr-roy          #+#    #+#             */
-/*   Updated: 2023/04/02 14:45:48 by yakary           ###   ########.fr       */
+/*   Updated: 2023/04/05 23:51:04 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ int	ft_putstr(char *s, int max, int *len)
 	int	i;
 
 	i = 0;
+	if (max == 0)
+		return (0);
 	if (!s)
 		return (ft_putstr("(null)", -1, len));
 	while (s[i] && (i < max || max == -1))

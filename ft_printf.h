@@ -6,7 +6,7 @@
 /*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 17:22:49 by ycyr-roy          #+#    #+#             */
-/*   Updated: 2023/04/04 13:57:44 by ycyr-roy         ###   ########.fr       */
+/*   Updated: 2023/04/06 00:21:33 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,14 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-//Flags: '#-+ 0'  Flags[0]; '+ ' Flags[1]: '-0' Flags[3]: '#'
+//Flags: '#-+ 0'  Flags[0]; '+ ' Flags[1]: '-' Flags[2]: '0' Flags[3]: '#'
 //Width: Any number above 0. To have 0, need to use '\0' I think? "-1" to skip
 //Precision: "".<x>"" <x> is replaced by any (unsgiend?) number. "-1" to skip
 //Type: 'csdiupxX'
 //PRE_ITSELF: 0 = none | 1 = yes
 typedef struct datas
 {
-	char	flag[3];
+	char	flag[4];
 	int		wdh;
 	int		pre;
 	char	type;
@@ -52,14 +52,16 @@ int			ft_flood(int size, char c, int *len);
 int			ft_strlen(const char *s);
 char		*ft_strdup(const char *s1);
 int			int_disp0(long long nb, t_data *data);
-int			int_disp1(long long nb, int nb_len, t_data *data);
-int			int_disp2(long long nb, int nb_len, t_data *data);
-int			int_disp3(int nb_len, t_data *data);
+int			int_disp1(int neg, int nb_len, t_data *data);
+int			int_disp2(int neg, int nb_len, t_data *data);
+int			int_disp3(int neg, int nb_len, t_data *data);
 int			c_dispatcher(int nb, t_data *data);
 int			d_dispatcher(int nb, t_data *data);
-int			d_dispatcher1(int nb, int true_nb, t_data *data);
+int			d_dispatcher1(int nb, int nb_len, int neg, t_data *data);
 int			u_dispatcher(unsigned int nb, t_data *data);
 int			x_dispatcher(unsigned int nb, t_data *data, int iflc);
+int			x_dispatcher1(unsigned int nb, t_data *data, int nb_len,
+				int is_lwc);
 int			p_dispatcher(unsigned long nb, t_data *data);
 int			s_dispatcher(char *s, t_data *data);
 int			flags_handler(char *str, t_data *data);
@@ -67,5 +69,7 @@ int			width_handler(va_list args, char *str, t_data *data);
 int			prec_handler(va_list args, char *str, t_data *data);
 int			types_handler(va_list args, char *str, t_data *data);
 int			main_dispatcher(va_list args, char *str, t_data *data);
+int			hex_len(unsigned long n);
+int			put_prefix(int nb, int is_lwc, t_data *data);
 
 #endif

@@ -12,21 +12,6 @@
 
 #include "ft_printf.h"
 
-/// TO DO: struct of struct? Each '%' needs somehow its own struct.
-// /!\ Probly not needed
-
-void	*ft_bzero(void *s, size_t n)
-{
-	unsigned char	*cp;
-
-	cp = (unsigned char *)s;
-	while (n--)
-	{
-		*cp++ = 0;
-	}
-	return (s);
-}
-
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
 	unsigned int	i;
@@ -62,26 +47,30 @@ int	ft_flood(int size, char c, int *len)
 	return (NO_ERROR);
 }
 
-void	*ft_calloc(size_t count, size_t size)
+int	hex_len(unsigned long n)
 {
-	void	*str;
+	int	i;
 
-	str = malloc(count * size);
-	if (!str)
-		return (NULL);
-	ft_bzero(str, count * size);
-	return (str);
+	i = 1;
+	if (n / 16)
+		i += hex_len(n / 16);
+	return (i);
 }
 
-char	*ft_strdup(const char *s1)
+int	put_prefix(int nb, int is_lwc, t_data *data)
 {
-	char	*str;
-
-	if (!s1)
-		return (NULL);
-	str = (char *)ft_calloc(ft_strlen(s1) + 1, sizeof(char));
-	if (!str)
-		return (NULL);
-	ft_strlcpy(str, s1, ft_strlen(s1) + 1);
-	return (str);
+	if (data->flag[3] == '#' && nb != 0)
+	{
+		if (is_lwc)
+		{
+			if (ft_putstr("0X", -1, data->len))
+				return (ERROR);
+		}
+		else
+		{
+			if (ft_putstr("0x", -1, data->len))
+				return (ERROR);
+		}
+	}
+	return (NO_ERROR);
 }

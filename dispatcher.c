@@ -6,7 +6,7 @@
 /*   By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 12:37:32 by ycyr-roy          #+#    #+#             */
-/*   Updated: 2023/04/04 13:58:23 by ycyr-roy         ###   ########.fr       */
+/*   Updated: 2023/04/06 10:14:05 by ycyr-roy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,11 @@ int	int_disp0(long long nb, t_data *data)
 // If WDH is bigger than existing PRE, it is WDH -= PRE
 // EXCEPTION: If flag is '0' + conditions before, flag '0' is removed.
 // MOVED '0' handler to disp2 to deal with negatives before.
-int	int_disp1(long long nb, int nb_len, t_data *data)
+int	int_disp1(int neg, int nb_len, t_data *data)
 {
-	if (data->flag[1] == '0' && data->wdh > data->pre && data->pre > 0)
-		data->flag[1] = '\0';
-	if (data->flag[1] != '-' && data->flag[1] != '0' && data->wdh > data->pre)
+	if (data->flag[2] == '0' && data->wdh > data->pre && data->pre > 0)
+		data->flag[2] = '\0';
+	if (data->flag[1] != '-' && data->flag[2] != '0' && data->wdh > data->pre)
 	{
 		if (data->wdh && data->pre && data->wdh > data->pre)
 		{
@@ -66,73 +66,32 @@ int	int_disp1(long long nb, int nb_len, t_data *data)
 				return (ft_flood(data->wdh - nb_len, ' ', data->len));
 		}
 		else
-			return (ft_flood(data->wdh - nb_len - data->pre, ' ', data->len));
+			return (ft_flood(data->wdh - nb_len, ' ', data->len));
 	}
-	nb += 0;
+	neg += 0;
 	return (NO_ERROR);
 }
 
 // Handles Precisions (PRE)
 // + '0' handlers from disp1
-int	int_disp2(long long nb, int nb_len, t_data *data)
+int	int_disp2(int neg, int nb_len, t_data *data)
 {
-	if (data->flag[1] == '0' && data->wdh > data->pre)
-	{
-		if (nb < 0)
-			nb_len++;
+	if (data->flag[2] == '0' && data->wdh > data->pre)
 		return (ft_flood(data->wdh - nb_len, '0', data->len));
-	}
 	if (data->pre > 0)
-		return (ft_flood(data->pre - nb_len, '0', data->len));
+		return (ft_flood(data->pre - nb_len + neg, '0', data->len));
 	return (NO_ERROR);
 }
 
 // Handles '-' and "post-word" width arguments
-int	int_disp3(int nb_len, t_data *data)
+int	int_disp3(int neg, int nb_len, t_data *data)
 {
 	if (data->flag[1] == '-' && data->wdh > data->pre)
 	{
 		if (data->pre > 0 && data->pre > nb_len)
-			return (ft_flood(data->wdh - data->pre, ' ', data->len));
+			return (ft_flood(data->wdh - data->pre - neg, ' ', data->len));
 		else
-			return (ft_flood(data->wdh - nb_len, ' ', data->len));
+			return (ft_flood(data->wdh - nb_len - neg, ' ', data->len));
 	}
 	return (NO_ERROR);
 }
-
-// int	d_dispatcher(va_list args, t_data *data, int *len)
-// {
-// 	if (data->flag[1] == '0')
-// 	{
-// 		if (nb < 0)
-// 			ft_putchar('-');
-// 		nb *= ft_flood(data->wdh - int_len(nb), nb, data->flag[1]);
-// 	}
-// 	else if (data->flag[1] != '-')
-// 		ft_flood(data->wdh - int_len(nb), nb, ' ');
-// 	if (data->precision >= int_len(nb))
-// 	{
-// 		if (nb < 0)
-// 			ft_putstr("-0", -1);
-// 		nb *= ft_flood(data->precision - int_len(nb), nb, '0');
-// 	}
-// 	ft_putnbr(nb);
-// 	if (data->flag[1] == '-')
-// 		ft_flood(data->wdh - int_len(nb), nb, ' ');
-// 	return (0);
-// }
-
-// int	p_dispatcher(va_list args, t_data *data, int *len)
-// {
-// 	int	old_len;
-
-// 	old_len = *len;
-// 	if (data->flag[1] == '0')
-// 		ft_flood(data->wdh - 14, 0, data->flag[1]);
-// 	else if (data->flag[1] != '-')
-// 		ft_flood(data->width - 14, 0, ' ');
-// 	ft_putptr();
-// 	if (data->flag[1] == '-')
-// 		ft_flood(data->width - (*len - old_len), 0, ' ');
-// 	return (0);
-// }
