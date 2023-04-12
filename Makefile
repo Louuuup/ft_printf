@@ -6,7 +6,7 @@
 #    By: ycyr-roy <ycyr-roy@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/14 15:09:39 by yakary            #+#    #+#              #
-#    Updated: 2023/03/27 21:27:21 by ycyr-roy         ###   ########.fr        #
+#    Updated: 2023/04/12 12:47:41 by ycyr-roy         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ SRC = printer.c \
 		lib_ft.c \
 		lib_ft1.c \
 		ft_printf.c \
+		dispatcher_main.c \
 		dispatcher.c \
 		dispatcher1.c \
 		argument_handlers.c
